@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 
 interface Props {
-  id?: string;
-  content: string;
-  complete: boolean;
+  id?: string
+  content: string
+  complete: boolean
 }
 
 const Task = ({ id, content, complete, ...props}: Props) => {

@@ -1,7 +1,7 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/styled"
 
 const Header = styled.h1`
-  text-align: center;
+  text-align: center
 `
 
-export default Header;
+export default Header
