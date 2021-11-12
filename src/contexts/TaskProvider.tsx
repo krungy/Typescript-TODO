@@ -10,20 +10,21 @@ interface Task {
 
 interface ITaskContext {
   tasks: Task[]
-  addTask(content: string): void;
-  updateTask(id: string, status: boolean): void;
-  removeTask(id: string): void;
+  addTask(content: string): void
+  updateTask(id: string, status: boolean): void
+  removeTask(id: string): void
 }
 
 const TaskContext = createContext<ITaskContext>({} as ITaskContext)
 export const useTasks = () => useContext(TaskContext)
 
 interface Props {
-  children: ReactChild;
+  children: ReactChild
+  initialTasks?: Task[]
 }
 
-const TaskProvider = ({ children }: Props) => {
-  const [tasks, setTasks] = useLocalStorage<Task[]>('tasks', [])
+const TaskProvider = ({ children, initialTasks = [] }: Props) => {
+  const [tasks, setTasks] = useLocalStorage<Task[]>('tasks', initialTasks)
 
   const addTask = (content: string) => {
     setTasks([
